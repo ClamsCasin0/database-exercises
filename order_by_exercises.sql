@@ -6,11 +6,12 @@ SELECT * FROM employees;
 SELECT *
 FROM employees
 WHERE first_name IN ('Irene', 'Vidya', 'Maya')
-ORDER BY first_name, last_name;
+ORDER BY last_name, first_name;
 # 2
 SELECT *
 FROM employees
-WHERE last_name LIKE 'E%';
+WHERE last_name LIKE 'E%'
+ORDER BY emp_no DESC;
 # 3
 SELECT *
 FROM employees
@@ -32,7 +33,7 @@ FROM employees
 WHERE (first_name = 'Irene'
 OR first_name = 'Vidya'
 OR first_name = 'Maya')
-ORDER BY first_name;
+ORDER BY last_name, first_name;
 # 2
 SELECT *
 FROM employees
@@ -44,7 +45,8 @@ AND gender = 'M';
 SELECT *
 FROM employees
 WHERE last_name LIKE 'E%'
-OR last_name LIKE '%E';
+OR last_name LIKE '%E'
+ORDER BY emp_no DESC;
 # 4
 SELECT *
 FROM employees
@@ -54,7 +56,8 @@ AND last_name LIKE '%E';
 SELECT *
 FROM employees
 WHERE hire_date BETWEEN '1990-01-01' AND '1999-12-31'
-AND birth_date LIKE '%-12-25';
+AND birth_date LIKE '%-12-25'
+ORDER BY birth_date ASC , hire_date DESC;
 # 6 //Find all employees with a 'q' in their last name but not 'qu'.
 SELECT *
 FROM employees
