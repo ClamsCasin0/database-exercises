@@ -5,7 +5,8 @@ SELECT * FROM employees;
 # 1
 SELECT *
 FROM employees
-WHERE first_name IN ('Irene', 'Vidya', 'Maya');
+WHERE first_name IN ('Irene', 'Vidya', 'Maya')
+ORDER BY first_name, last_name;
 # 2
 SELECT *
 FROM employees
@@ -30,7 +31,8 @@ SELECT *
 FROM employees
 WHERE (first_name = 'Irene'
 OR first_name = 'Vidya'
-OR first_name = 'Maya');
+OR first_name = 'Maya')
+ORDER BY first_name;
 # 2
 SELECT *
 FROM employees
