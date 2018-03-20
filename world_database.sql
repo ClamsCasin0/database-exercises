@@ -28,4 +28,27 @@ GROUP BY Region
 ORDER BY Population DESC;
 
 # 4
+SELECT Continent, SUM(Population) AS Population
+FROM country
+GROUP BY Continent
+ORDER BY Population DESC;
+
+# 5
+SELECT AVG(LifeExpectancy) AS 'avg(LifeExpectancy)'
+FROM country;
+
+# 6 What is the average life expectancy for each region,
+#  each continent? Sort the results from shortest to longest
+# 6 a
+SELECT Continent, AVG(LifeExpectancy) AS 'life_expectancy'
+FROM country
+GROUP BY Continent
+ORDER BY life_expectancy;
+
+# 6 b
+SELECT Region, AVG(LifeExpectancy) AS 'life_expectancy'
+FROM country
+GROUP BY Region
+ORDER BY life_expectancy;
+
 
