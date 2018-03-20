@@ -1,7 +1,7 @@
 USE employees;
 
 # 1 Return 10 employees in a result set named 'full_name'
-# in the format of 'lastname, firstname' for each employee.
+# in the format of 'last_name, first_name' for each employee.
 
 SELECT CONCAT(last_name, ', ', first_name) AS full_name
 FROM employees
@@ -17,7 +17,7 @@ LIMIT 10;
 
 # 3 Update the query to format full name to include the
 #  employee number so it is formatted as
-# 'employee number - lastname, firstname'.
+# 'employee number - last_name, first_name'.
 
 SELECT CONCAT(emp_no, ' - ',  last_name, ', ', first_name) AS full_name, birth_date AS 'DOB'
 FROM employees
