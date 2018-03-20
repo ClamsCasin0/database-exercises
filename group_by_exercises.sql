@@ -26,3 +26,18 @@ AND last_name NOT LIKE '%qu%'
 ORDER BY COUNT(*);
 
 # 5
+SELECT COUNT(gender)
+FROM employees
+WHERE (first_name = 'Irene'
+OR first_name = 'Vidya'
+OR first_name = 'Maya')
+GROUP BY gender;
+
+SELECT COUNT(first_name = 'Irene'
+OR first_name = 'Vidya'
+OR first_name = 'Maya')
+FROM employees
+WHERE (first_name = 'Irene'
+       OR first_name = 'Vidya'
+       OR first_name = 'Maya')
+GROUP BY gender;
