@@ -51,4 +51,28 @@ FROM country
 GROUP BY Region
 ORDER BY life_expectancy;
 
+# BONUS
+#a Find all the countries whose local name is different
+#a from the official name.
+SELECT name, LocalName
+FROM country
+WHERE LocalName NOT LIKE name;
 
+#b How many countries have a life expectancy less than x?
+USE world_x;
+
+SHOW TABLES;
+
+SELECT * FROM city
+WHERE Name LIKE '%X%';
+
+
+
+
+#c What state is city x located in?
+
+#d What region of the world is city x located in?
+
+#e What country (use the human readable name) city x located in?
+
+#f What is the life expectancy in city x?

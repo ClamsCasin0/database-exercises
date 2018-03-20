@@ -33,6 +33,7 @@ OR first_name = 'Vidya'
 OR first_name = 'Maya')
 GROUP BY gender;
 
+# 6
 SELECT COUNT(first_name = 'Irene'
 OR first_name = 'Vidya'
 OR first_name = 'Maya')
