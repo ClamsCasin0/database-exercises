@@ -99,15 +99,14 @@ FROM employees AS e
   JOIN dept_manager AS dm ON  dm.emp_no = e.emp_no
   JOIN departments AS d ON  d.dept_no = dm.dept_no
   JOIN salaries AS s ON s.emp_no = e.emp_no
-WHERE
-#   dm.to_date BETWEEN '1985-01-01' AND NOW() AND
-  s.to_date BETWEEN '1985-01-01' AND NOW()
+# WHERE
+# #   dm.to_date BETWEEN '1985-01-01' AND NOW() AND
+#   s.to_date BETWEEN '1985-01-01' AND NOW()
 GROUP BY gender;
+
 # ALMOST GOT IT, SO CLOSE
 # M 72012.7818
-# F 62037.9045
-
-
+# F 62037.
 
 # J-3)
 # get avg salary for all current employees by gender
@@ -116,12 +115,12 @@ GROUP BY gender;
 SELECT gender, AVG(salary) AS 'Average Salary'
 FROM employees AS e
   JOIN dept_emp AS de ON e.emp_no = de.emp_no
-  JOIN departments AS d ON de.dept_no = d.dept_no
-  JOIN dept_manager AS dm ON d.dept_no = dm.dept_no
+#   JOIN departments AS d ON de.dept_no = d.dept_no
+#   JOIN dept_manager AS dm ON d.dept_no = dm.dept_no
 #   JOIN employees AS emp ON dm.emp_no = emp.emp_no
   JOIN salaries s ON e.emp_no = s.emp_no
 WHERE de.to_date >= CURDATE()
-      AND dm.to_date >= CURDATE()
+      AND s.to_date >= CURDATE()
 GROUP BY gender;
 
 
@@ -129,3 +128,15 @@ GROUP BY gender;
 # get avg historic salary for all employees by gender
 # M 63842.25
 # F 63750.17
+
+
+SELECT gender, AVG(salary) AS 'Average Salary'
+FROM employees AS e
+  JOIN dept_emp AS de ON e.emp_no = de.emp_no
+  #   JOIN departments AS d ON de.dept_no = d.dept_no
+  #   JOIN dept_manager AS dm ON d.dept_no = dm.dept_no
+  #   JOIN employees AS emp ON dm.emp_no = emp.emp_no
+  JOIN salaries s ON e.emp_no = s.emp_no
+# WHERE de.to_date >= CURDATE()
+#       AND s.to_date >= CURDATE()
+GROUP BY gender;
