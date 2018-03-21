@@ -54,3 +54,20 @@ ORDER BY d.dept_name;
 
 
 # b)
+SELECT * FROM employees;
+SELECT * FROM dept_manager;
+SELECT * FROM salaries;
+
+
+SELECT e.first_name, e.last_name
+FROM employees AS e
+WHERE e.emp_no IN (
+  SELECT s.emp_no
+  FROM salaries AS s
+  WHERE s.salary = '158220'
+#     AND s.emp_no IN (
+#       SELECT dm.dept_no
+#       FROM dept_manager AS dm
+#       WHERE dm.to_date = '9999-01-01'
+#   )
+)
