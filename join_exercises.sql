@@ -7,7 +7,7 @@ SELECT * FROM departments;
 SELECT * FROM dept_emp;
 SELECT * FROM dept_manager;
 SELECT * FROM titles;
-SELECT * FROM employees WHERE hire_date LIKE '1985-01%';
+SELECT * FROM employees;
 SELECT * FROM salaries;
 # Base example
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS full_name,
@@ -17,27 +17,30 @@ FROM employees as e
   JOIN departments as d ON d.dept_no = de.dept_no
 WHERE de.to_date = '9999-01-01' AND e.emp_no = 10001;
 
+
 # 2
 SELECT d.dept_name AS 'Department Name',
   CONCAT(e.first_name, ' ', e.last_name) AS 'Department Manager'
 FROM employees AS e
-  JOIN dept_manager AS de ON  de.emp_no = e.emp_no
-  JOIN departments AS d ON  d.dept_no = de.dept_no
+  JOIN dept_manager AS de ON de.emp_no = e.emp_no
+  JOIN departments AS d ON d.dept_no = de.dept_no
 WHERE de.to_date >= CURDATE()
 ORDER BY d.dept_name;
+
 
 # 3
 SELECT d.dept_name AS 'Department Name',
   CONCAT(e.first_name, ' ', e.last_name) AS 'Manager Name'
 FROM employees AS e
-  JOIN dept_manager AS de ON  de.emp_no = e.emp_no
-  JOIN departments AS d ON  d.dept_no = de.dept_no
+  JOIN dept_manager AS de ON de.emp_no = e.emp_no
+  JOIN departments AS d ON d.dept_no = de.dept_no
 WHERE de.to_date >= CURDATE()
-  AND gender = 'F'
+  AND e.gender = 'F'
 ORDER BY d.dept_name;
 
+
 # 4 d009 customer service
-SELECT t.titles, COUNT(e.emp_no)
+SELECT t.title AS 'Title', COUNT(e.emp_no) AS 'Count'
 FROM titles AS t
   JOIN employees AS e ON e.emp_no = t.emp_no
   JOIN dept_emp AS de ON de.emp_no = e.emp_no
@@ -46,6 +49,7 @@ WHERE t.to_date >= CURDATE()
   AND d.dept_name = 'Customer Service'
   AND de.to_date >= CURDATE()
 GROUP BY t.title;
+
 
 # 5
 SELECT d.dept_name AS 'Department Name',
@@ -58,6 +62,7 @@ FROM employees AS e
 WHERE dm.to_date >= CURDATE()
   AND s.to_date >= CURDATE()
 ORDER BY d.dept_name;
+
 
 # Bonus
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee Name',
@@ -73,7 +78,7 @@ WHERE de.to_date = '9999-01-01'
 ORDER BY d.dept_name;
 
 
-# Justin's extra bonus
+# Justin's slack bonuses
 # J-1)
 # Write a query to get the average salary current managers
 # make by gender

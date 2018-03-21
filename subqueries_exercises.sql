@@ -37,7 +37,7 @@ WHERE e.emp_no IN (
 AND e.gender = 'F';
 
 # BONUS
-
+# a)
 SELECT d.dept_name
 FROM departments AS d
 WHERE d.dept_no IN (
@@ -51,3 +51,6 @@ WHERE d.dept_no IN (
     )
   )
 ORDER BY d.dept_name;
+
+
+# b)
