@@ -109,9 +109,6 @@ FROM employees AS e
 #   s.to_date BETWEEN '1985-01-01' AND NOW()
 GROUP BY gender;
 
-# ALMOST GOT IT, SO CLOSE
-# M 72012.7818
-# F 62037.
 
 # J-3)
 # get avg salary for all current employees by gender
