@@ -82,12 +82,14 @@ WHERE e.emp_no IN (
 SELECT birth_date , COUNT(birth_date)
 FROM employees
 GROUP BY birth_date ASC
-ORDER BY COUNT(birth_date) DESC;
+ORDER BY COUNT(birth_date) DESC
+LIMIT 15;
 # Least common)
 SELECT birth_date , COUNT(birth_date)
 FROM employees
 GROUP BY birth_date
-ORDER BY COUNT(birth_date);
+ORDER BY COUNT(birth_date)
+LIMIT 15;
 
 # J-2)
 # what is the average salary of managers by department?
@@ -103,6 +105,7 @@ WHERE dm.to_date >= CURDATE()
       AND s.to_date >= CURDATE()
 GROUP BY d.dept_name;
 
+# not quite there..
 
 # J-3
 # how many employees currently work in each department
@@ -113,3 +116,8 @@ FROM employees AS e
   JOIN departments AS d ON d.dept_no = de.dept_no
 WHERE de.to_date >= CURDATE()
 GROUP BY d.dept_name;
+
+# J-4
+# what is the average salary for each department?
+
+
