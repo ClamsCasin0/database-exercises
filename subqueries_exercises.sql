@@ -10,6 +10,7 @@ WHERE emp_no IN (
 )
 LIMIT 10;
 
+
 # 1
 SELECT *
 FROM employees AS e
@@ -18,8 +19,9 @@ WHERE e.hire_date IN (
   FROM employees AS emp
   WHERE emp.emp_no = 101010);
 
+
 # 2
-SELECT t.title, COUNT(*)
+SELECT t.title, COUNT(*) AS '# of employees with first_name ''Aamod'' '
 FROM titles AS t
 WHERE t.emp_no IN (
   SELECT e.emp_no
@@ -28,15 +30,15 @@ WHERE t.emp_no IN (
 GROUP BY t.title;
 
 
-
 # 3
 SELECT first_name, last_name
 FROM employees AS e
 WHERE e.emp_no IN (
   SELECT dm.emp_no
   FROM dept_manager AS dm
-  WHERE dm.to_date = '9999-01-01')
+  WHERE dm.to_date = '9999-01-01') # *Another way*  WHERE dm.to_date > CURDATE())
 AND e.gender = 'F';
+
 
 # BONUS
 # a)
@@ -44,8 +46,9 @@ SELECT d.dept_name
 FROM departments AS d
 WHERE d.dept_no IN (
   SELECT dm.dept_no
-  FROM dept_manager AS dm
-  WHERE dm.to_date = '9999-01-01'
+  FROM dept_man
+       ager AS dm
+  WHERE dm.to_date = '9999-01-01' # *Another way*  WHERE dm.to_date > CURDATE())
     AND dm.emp_no IN (
       SELECT e.emp_no
       FROM employees AS e
